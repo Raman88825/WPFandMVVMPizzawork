@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ABAC57EF-0C0A-4F42-B2A9-359BF04651C1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Pizzawork</RootNamespace>
+    <AssemblyName>Pizzawork</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Geocoding, Version=3.6.0.0, Culture=neutral, PublicKeyToken=7c714700b88674c7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Geocoding.net.3.6.1\lib\net40\Geocoding.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Maps.MapControl.WPF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Maps.MapControl.WPF.1.0.0.3\lib\net40-Client\Microsoft.Maps.MapControl.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Client\AddClientDialogViewModel.cs" />
+    <Compile Include="ViewModel\Client\ClientTabViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\Order\AddOrderDialogViewModel.cs" />
+    <Compile Include="ViewModel\Order\OrderTabViewModel.cs" />
+    <Compile Include="ViewModel\Order\StopOrderDialogViewModel.cs" />
+    <Compile Include="ViewModel\PizzaType\AddEditTypeDialogViewModel.cs" />
+    <Compile Include="ViewModel\PizzaType\ChartVM.cs" />
+    <Compile Include="ViewModel\PizzaType\PizzaTypeTabViewModel.cs" />
+    <Compile Include="ViewModel\Pizza\AddEditPizzaDialogViewModel.cs" />
+    <Compile Include="ViewModel\Pizza\PizzaTabViewModel.cs" />
+    <Compile Include="ViewModel\Spot\AddSpotDialogViewModel.cs" />
+    <Compile Include="ViewModel\Spot\SpotTabViewModel.cs" />
+    <Compile Include="Views\Charts\PizzaTypeChart.xaml.cs">
+      <DependentUpon>PizzaTypeChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Client\AddClientDialog.xaml.cs">
+      <DependentUpon>AddClientDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Client\ClientTabUC.xaml.cs">
+      <DependentUpon>ClientTabUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Order\AddOrderDialog.xaml.cs">
+      <DependentUpon>AddOrderDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Order\OrderTabUC.xaml.cs">
+      <DependentUpon>OrderTabUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Order\StopOrderDialog.xaml.cs">
+      <DependentUpon>StopOrderDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PizzaType\AddEditTypeDialog.xaml.cs">
+      <DependentUpon>AddEditTypeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PizzaType\ChartDialog.xaml.cs">
+      <DependentUpon>ChartDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PizzaType\PizzaTypeUC.xaml.cs">
+      <DependentUpon>PizzaTypeUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pizza\AddEditPizzaDialog.xaml.cs">
+      <DependentUpon>AddEditPizzaDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pizza\PizzaTabUC.xaml.cs">
+      <DependentUpon>PizzaTabUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Spot\AddSpotDialog.xaml.cs">
+      <DependentUpon>AddSpotDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Spot\SpotTabUC.xaml.cs">
+      <DependentUpon>SpotTabUC.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Infrastucture\ActiveBackgroundConverter.cs" />
+    <Compile Include="Infrastucture\AddressStringConverter.cs" />
+    <Compile Include="Infrastucture\CommandablePushpin.cs" />
+    <Compile Include="Infrastucture\ImageSourceConverter.cs" />
+    <Compile Include="Infrastucture\MapLocation.cs" />
+    <Compile Include="Infrastucture\RelayCommand.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\Charts\PizzaTypeChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Client\AddClientDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Client\ClientTabUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Order\AddOrderDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Order\OrderTabUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Order\StopOrderDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PizzaType\AddEditTypeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PizzaType\ChartDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PizzaType\PizzaTypeUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pizza\AddEditPizzaDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pizza\PizzaTabUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Spot\AddSpotDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Spot\SpotTabUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Icons\Add_Icon.png" />
+    <Resource Include="Icons\Change_Icon.png" />
+    <Resource Include="Icons\Default_Pizza_Icon.png" />
+    <Resource Include="Icons\Delete_Icon.png" />
+    <Resource Include="Icons\Export_Icon.png" />
+    <Resource Include="Icons\Import_Icon.png" />
+    <Resource Include="Icons\Search_Icon.png" />
+    <Resource Include="Icons\Stop_Icon.png" />
+    <Resource Include="Icons\Update_Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaWork.BusinessLayer\PizzaWork.BusinessLayer.csproj">
+      <Project>{e2312f5d-f40f-47a2-bd81-062514b3b698}</Project>
+      <Name>PizzaWork.BusinessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

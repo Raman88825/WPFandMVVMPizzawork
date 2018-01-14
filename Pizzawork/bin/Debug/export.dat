@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ArrayOfPizzaViewModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PizzaViewModel>
+    <PizzaId>1</PizzaId>
+    <SerialNumber>12</SerialNumber>
+    <Size>24</Size>
+    <AccessCode>2496</AccessCode>
+    <State>Ready</State>
+    <PizzaTypeId>1</PizzaTypeId>
+    <SpotId>2</SpotId>
+  </PizzaViewModel>
+</ArrayOfPizzaViewModel>

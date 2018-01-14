@@ -1,0 +1,16 @@
+﻿<Application x:Class="Pizzawork.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Pizzawork"
+             xmlns:VM="clr-namespace:Pizzawork.ViewModel"
+             xmlns:clr="clr-namespace:System;assembly=mscorlib"
+             xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+             StartupUri="MainWindow.xaml"
+             Startup="Application_Startup"
+             Exit="Application_Exit">
+    <Application.Resources>
+        <VM:MainViewModel x:Key="MainViewModel">            
+        </VM:MainViewModel>
+        <m:ApplicationIdCredentialsProvider x:Key="BingMapKey" ApplicationId="3172HcZGWzeWShq1Zm9T~hTzutapSxK6wVIENAlQYPg~AnI7u3m_AR6hCU8BrWen1SYUudrqASPoaEYuLOuMCAkVHivxlVGMNzrUVyj5TTTA"/>
+    </Application.Resources>
+</Application>

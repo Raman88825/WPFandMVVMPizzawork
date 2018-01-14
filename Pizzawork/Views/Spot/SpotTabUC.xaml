@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="Pizzawork.Views.Spot.SpotTabUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pizzawork.Views.Spot"
+             xmlns:inf="clr-namespace:Pizzawork.Infrastructure"
+             xmlns:map="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+             xmlns:inter="http://schemas.microsoft.com/expression/2010/interactivity"             
+             mc:Ignorable="d" 
+             >
+    <UserControl.Resources>
+        <inf:ActiveBackgroundConverter x:Key="ActiveBackgroundConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DataGrid
+                        x:Name="SpotDtgrd"
+                        Grid.Row="1"
+                        ItemsSource="{Binding Path=SpotVM.Spots}" 
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              IsReadOnly="True"
+                              SelectedItem="{Binding Path=SpotVM.SelectedSpot, UpdateSourceTrigger=PropertyChanged}"
+                              SelectionMode="Single"
+                              >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding SpotId}"/>
+                <DataGridTextColumn Header="Город" Binding="{Binding City}"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Address}"/>
+                <DataGridTextColumn Header="Вместимость" Binding="{Binding Capacity}"/>
+                <DataGridTextColumn Header="Можно заказать" Binding="{Binding Pizzas.Count}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <map:Map CredentialsProvider="{StaticResource BingMapKey}"
+                        MinHeight="255"
+                        MinWidth="255"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        DataContext="{Binding Path=SpotVM}"
+                        Center="53.883146, 27.568331"
+                        ZoomLevel="10">
+            <map:MapItemsControl ItemsSource="{Binding Locations}">
+                <map:MapItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <inf:CommandablePushpin Command="{Binding Path=ClickedCommand}"
+                                                Location="{Binding Path=Location}"
+                                                Id="{Binding Path=Id}"
+                                                Background="{Binding Path=IsActive,
+                            Converter={StaticResource ActiveBackgroundConverter}}"
+                                                ></inf:CommandablePushpin>
+                    </DataTemplate>
+                </map:MapItemsControl.ItemTemplate>
+            </map:MapItemsControl>
+        </map:Map>
+        <StackPanel Orientation="Horizontal"
+                    DataContext="{Binding Path=SpotVM}">
+            <Button ToolTip="Добавить точку"  Command="{Binding AddCommand}">
+                <Image Source="..\..\Icons\Add_Icon.png" Width="35"/>
+            </Button>
+            <Button ToolTip="Удалить точку"  Command="{Binding DeleteCommand}">
+                <Image Source="..\..\Icons\Delete_Icon.png" Width="30"/>
+            </Button>
+            <Button ToolTip="Обновить список точек"  Command="{Binding RefreshCommand}" HorizontalAlignment="Right">
+                <Image Source="..\..\Icons\Update_Icon.png" Width="30"/>
+            </Button>            
+        </StackPanel>
+    </Grid>
+</UserControl>
